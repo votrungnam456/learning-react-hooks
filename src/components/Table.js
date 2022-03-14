@@ -4,13 +4,15 @@ const Table = (props) => {
   const [listAdd, setListAdd] = useState(props.data);
   const [listHeder, setListHeader] = useState(props.headerTable)
   useEffect(() => {
-    setListAdd(props.headerTable);
+    setListAdd(props.data);
+    setListHeader(props.headerTable);
   }, [props])
 
   const choseData = (name, age) => {
     console.log(name, age);
   }
   const tHeader = () => {
+    
     return (
       <tr>
         {listHeder.map((data, index) => {
@@ -21,13 +23,20 @@ const Table = (props) => {
       </tr>
     )
   }
-  const tBody = () =>{
+  const tBody = () => {
+    const keyArr = [];
+    listHeder.map(data => {
+      keyArr.push(data.value)
+    })
     return (
-      listAdd.map((data,index) =>{
+      listAdd.map((data, index) => {
         return (
           <tr key={index}>
-            <td>{data.name}</td>
-            <td>{data.age}</td>
+            {
+              keyArr.map((dataKey, indexKey) => {
+                return (<td key={indexKey}>{data[dataKey]}</td>)
+              })
+            }
           </tr>
         )
       })

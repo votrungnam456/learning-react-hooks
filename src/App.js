@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Input from './components/Input';
 import Table from './components/Table';
@@ -31,6 +30,11 @@ function App() {
       value: 'address',
       style:'a',
     },
+    {
+      label: 'So thich',
+      value: 'hobby',
+      style:'a',
+    },
   ]
   const data = [
     {
@@ -38,24 +42,28 @@ function App() {
       name: 'nguyen van a',
       age: '19',
       address: 'A9',
+      hobby:'abc'
     },
     {
       id: '1',
       name: 'nguyen van b',
       age: '19',
       address: 'A9',
+      hobby:'abc'
     },
     {
       id: '1',
       name: 'nguyen van c',
       age: '19',
       address: 'A9',
+      hobby:'abc'
     },
     {
       id: '1',
       name: 'nguyen van d',
       age: '19',
       address: 'A9',
+      hobby:'abc'
     }
   ]
   return (
