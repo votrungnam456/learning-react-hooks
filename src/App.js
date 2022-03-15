@@ -2,6 +2,7 @@ import './App.css';
 import Input from './components/Input';
 import Table from './components/Table';
 import React, { useState } from 'react';
+import Shape from './components/Shape';
 function App() {
   const [dataChose, setDataChose] = useState({});
   const [dataTable, setDataTable] = useState([
@@ -73,7 +74,7 @@ function App() {
   ]
   const choseData = (data) => {
     // console.log(data);
-    // setDataChose(data);
+    setDataChose(data);
   }
   const addData = (data) => {
     setDataTable((prevState) => {
@@ -85,6 +86,7 @@ function App() {
     <div className="App">
       <Input headerTable={headerTable} dataChose={dataChose} addData={(data) => addData(data)}></Input>
       <Table headerTable={headerTable} data={dataTable} choseData={(data) => choseData(data)}></Table>
+      <Shape></Shape>
     </div>
   );
 }

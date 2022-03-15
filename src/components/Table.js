@@ -19,7 +19,16 @@ const Table = (props) => {
       }
       setChecked(check);
     }
-  }, [listData.length, listHeder])
+  }, [])
+  useEffect(() => {
+    if(checked['checkBox' + (listData.length - 1)] === undefined){
+      setChecked((prevState) => {
+        const newState = { ...prevState };
+        newState['checkBox' + (listData.length - 1)] = false;
+        return newState;
+      });
+    }
+  }, [listData])
   const toggleCheck = (inputName) => {
     setChecked((prevState) => {
       const newState = { ...prevState };
@@ -28,7 +37,6 @@ const Table = (props) => {
     });
   };
   const selectAll = (value) => {
-    console.log('b')
     setCheckBoxAll(value);
     setChecked((prevState) => {
       const newState = { ...prevState };
@@ -50,11 +58,7 @@ const Table = (props) => {
     } else {
       setCheckBoxAll(false);
     }
-  }, [checked]);
-  useEffect(() => {
-    console.log('e')
-    setlistData(props.data);
-  }, [props.data]);
+  }, [checked,listData]);
   const tHeader = () => {
     return (
       <tr>
