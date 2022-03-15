@@ -37,7 +37,6 @@ const Input = (props) => {
   const renderInput = () => {
     return (
       <div>
-
         {listHeder[0].data.map((data, index) => {
           return (
             <div key={index}>

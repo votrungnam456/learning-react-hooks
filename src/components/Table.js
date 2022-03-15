@@ -7,7 +7,11 @@ const Table = (props) => {
   const [checked, setChecked] = useState({});
   useEffect(() => {
     setlistData(props.data);
+  }, [props.data])
+  useEffect(() => {
     setListHeader(props.headerTable);
+  }, [props.headerTable])
+  useEffect(() => {
     if (listHeder[0].config.checkBox) {
       const check = {};
       for (let i = 0; i < listData.length; i++) {
@@ -15,8 +19,7 @@ const Table = (props) => {
       }
       setChecked(check);
     }
-  }, [listData.length, listHeder, props])
-
+  }, [listData.length, listHeder])
   const toggleCheck = (inputName) => {
     setChecked((prevState) => {
       const newState = { ...prevState };
@@ -25,6 +28,7 @@ const Table = (props) => {
     });
   };
   const selectAll = (value) => {
+    console.log('b')
     setCheckBoxAll(value);
     setChecked((prevState) => {
       const newState = { ...prevState };
@@ -48,6 +52,7 @@ const Table = (props) => {
     }
   }, [checked]);
   useEffect(() => {
+    console.log('e')
     setlistData(props.data);
   }, [props.data]);
   const tHeader = () => {

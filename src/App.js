@@ -67,12 +67,13 @@ function App() {
         type: 'text',
       },],
       config: {
-        // checkBox: true
+        checkBox: true
       }
     }
   ]
   const choseData = (data) => {
-    setDataChose(data);
+    // console.log(data);
+    // setDataChose(data);
   }
   const addData = (data) => {
     setDataTable((prevState) => {
