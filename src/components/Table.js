@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { emptyData } from '../constants/constanstData';
 
 const Table = (props) => {
   const [listData, setlistData] = useState(props.data);
@@ -61,7 +62,7 @@ const Table = (props) => {
   }, [checked,listData]);
   const tHeader = () => {
     return (
-      <tr>
+      <tr onClick={() => props.choseData(emptyData)} >
         {listHeder[0].config.checkBox ? <th><input id="checkBoxAll" type="checkbox" checked={checkBoxAll} onChange={(event) => selectAll(event.target.checked)} /></th> : ''}
         {listHeder[0].data.map((data, index) => {
           return (
